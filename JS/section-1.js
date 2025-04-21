@@ -38,7 +38,7 @@ donateBtn?.addEventListener("click", () => {
   // Create Tailwind-styled history card
   const historyEntry = document.createElement("div");
   historyEntry.className =
-    "border-2 border-lime-500 rounded-xl shadow p-5 text-gray-800 my-4 hover:shadow-lg transition-shadow duration-300";
+    "bg-green-50 border-2 border-lime-500 rounded-xl shadow p-5 text-gray-800 my-4 hover:shadow-lg transition-shadow duration-300";
   historyEntry.innerHTML = `
     <h3 class="text-lg font-semibold text-lime-600">${amount} Taka Donated</h3>
     <p class="text-base mt-2 text-gray-800">For Flood at <span class="font-medium text-lime-500">Noakhali, Bangladesh</span></p>

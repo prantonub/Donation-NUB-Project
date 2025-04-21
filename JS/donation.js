@@ -1,14 +1,37 @@
 const donationTab = document.getElementById("donationTab");
 const historyTab = document.getElementById("historyTab");
-const donationSection = document.getElementById("section-1");
-const historySection = document.getElementById("donationCards");
 
+const section1 = document.getElementById("section-1");
+const section2 = document.getElementById("section-2");
+const section3 = document.getElementById("section-3");
+const donationCards = document.getElementById("donationCards");
+
+// Show donation sections
 donationTab?.addEventListener("click", () => {
-  donationSection.style.display = "flex";
-  historySection.style.display = "none";
+  section1.style.display = "flex";
+  section2.style.display = "flex";
+  section3.style.display = "flex";
+  donationCards.style.display = "none";
+
+  // Button styles
+  donationTab.classList.add("bg-lime-400");
+  donationTab.classList.remove("border-2", "border-gray-300");
+
+  historyTab.classList.remove("bg-lime-400");
+  historyTab.classList.add("border-2", "border-gray-300");
 });
 
+// Show history section
 historyTab?.addEventListener("click", () => {
-  donationSection.style.display = "none";
-  historySection.style.display = "block";
+  section1.style.display = "none";
+  section2.style.display = "none";
+  section3.style.display = "none";
+  donationCards.style.display = "block";
+
+  // Button styles
+  historyTab.classList.add("bg-lime-400");
+  historyTab.classList.remove("border-2", "border-gray-300");
+
+  donationTab.classList.remove("bg-lime-400");
+  donationTab.classList.add("border-2", "border-gray-300");
 });
