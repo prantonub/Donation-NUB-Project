@@ -2,6 +2,25 @@
 <html lang="en">
 
 <head>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCSEwO83OIpu9QDXNAlS1kjm0r-chWiw5I",
+        authDomain: "donation-nub-project.firebaseapp.com",
+        projectId: "donation-nub-project",
+        storageBucket: "donation-nub-project.firebasestorage.app",
+        messagingSenderId: "964144828200",
+        appId: "1:964144828200:web:6373814b19f19709ab8a1d"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HopeFund BD</title>
@@ -20,7 +39,7 @@
 <body>
     <nav
         class="fixed top-0 left-0 w-full max-w-12xl mx-auto px-4 py-3 flex justify-between items-center p-10 py-10 bg-zinc-100 shadow-lg">
-        <a href="js/home.html">
+        <a href="blog.html">
             <button id="blogButton"
                 class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500">
                 Blog
@@ -37,6 +56,9 @@
     </nav>
 
     <main class="max-w-screen-xl mx-auto px-16 lg:px-28 mt-24">
+            <p id="authMessage" class="text-sm text-gray-600 mt-2"></p>
+        </div>
+
         <section class="flex justify-center py-10 gap-4">
             <div>
                 <button id="donationTab"
@@ -197,6 +219,45 @@
     <script src="JS/section-1.js"></script>
     <script src="JS/section-2.js"></script>
     <script src="JS/section-3.js"></script>
+    <script src="blog.html"></script>
+    
+
+<!-- Footer Start -->
+<footer id="footerSection" class="bg-zinc-100 border-t border-gray-300 mt-10">
+    <div
+        class="max-w-screen-xl mx-auto px-6 py-10 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-6">
+        <!-- Logo and Name -->
+        <div class="flex items-center gap-3">
+            <img src="assets/logo.png" alt="HopeFund BD Logo" class="w-10 h-10" />
+            <h2 class="text-2xl font-bold">HopeFund BD</h2>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="flex gap-6 flex-wrap justify-center sm:justify-start text-gray-700 font-medium">
+            <a href="#section-1" class="hover:text-lime-500 transition">Donate</a>
+            <a href="#donationCards" class="hover:text-lime-500 transition">History</a>
+            <a href="blog.html" class="hover:text-lime-500 transition">Blog</a>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex gap-4">
+            <a href="https://www.facebook.com/NUBDhaka" class="text-gray-700 hover:text-lime-500 transition text-xl"><i 
+                class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/nubbdofficial/" target="_blank" class="text-gray-700 hover:text-lime-500 transition text-xl"><i 
+                class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/northernuniversitybangladesh/" class="text-gray-700 hover:text-lime-500 transition text-xl"><i
+                    class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="text-center text-sm text-gray-500 py-4 border-t border-gray-300">
+        &copy; 2025 HopeFund BD. All rights reserved.
+    </div>
+</footer>
+<!-- Footer End -->
+
+
 </body>
 
 </html>
+
