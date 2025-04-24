@@ -4,6 +4,8 @@ const historyTab = document.getElementById("historyTab");
 const section1 = document.getElementById("section-1");
 const section2 = document.getElementById("section-2");
 const section3 = document.getElementById("section-3");
+const section4 = document.getElementById("section-4"); // Added section 4
+const section5 = document.getElementById("section-5"); // Added section 5
 const donationCards = document.getElementById("donationCards");
 
 // Show donation sections
@@ -11,6 +13,8 @@ donationTab?.addEventListener("click", () => {
   section1.style.display = "flex";
   section2.style.display = "flex";
   section3.style.display = "flex";
+  section4.style.display = "flex"; // Display section 4
+  section5.style.display = "flex"; // Display section 5
   donationCards.style.display = "none";
 
   // Button styles
@@ -26,6 +30,8 @@ historyTab?.addEventListener("click", () => {
   section1.style.display = "none";
   section2.style.display = "none";
   section3.style.display = "none";
+  section4.style.display = "none"; // Hide section 4
+  section5.style.display = "none"; // Hide section 5
   donationCards.style.display = "block";
 
   // Button styles
