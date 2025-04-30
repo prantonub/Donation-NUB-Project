@@ -54,7 +54,7 @@ loginForm.addEventListener('submit', async (e) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
     // Redirect to the main website page without showing an alert
-    window.location.href = "../src/index.html";  // Replace with your main website page URL
+    window.location.href = "./home.html";  // Replace with your main website page URL
   } catch (error) {
     alert("Login Error: " + getErrorMessage(error.code));
   }
