@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HopeFund BD - Auth</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-zinc-100">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full px-4 py-3 flex justify-center bg-zinc-100 shadow-lg z-50">
+        <div class="flex items-center space-x-2 hidden md:flex">
+            <img src="/src/assets/logo.png" alt="Logo" class="w-8 h-8">
+            <span class="font-bold text-2xl">HopeFund BD</span>
+        </div>
+    </nav>
+
+    <!-- Auth Container with Background -->
+    <section class="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center px-4 pt-32"
+        style="background-image: url('/src/assets/bg-image.jpg')">
+
+        <div class="bg-white bg-opacity-80 backdrop-blur-sm p-8 rounded-2xl shadow-xl w-full max-w-md text-gray-800">
+
+            <!-- Tab Switch -->
+            <div class="flex justify-center mb-6 space-x-6 text-lg font-semibold">
+                <button id="loginTab"
+                    class="text-lime-600 border-b-2 border-transparent hover:border-lime-500 hover:text-lime-500 focus:outline-none">
+                    Login
+                </button>
+                <button id="signupTab"
+                    class="text-gray-600 border-b-2 border-transparent hover:border-lime-500 hover:text-lime-500 focus:outline-none">
+                    Sign Up
+                </button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="space-y-5">
+                <div>
+                    <label for="email" class="block text-sm font-medium">Email</label>
+                    <input type="email" id="email" required
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500 transition-all duration-300 ease-in-out">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium">Password</label>
+                    <input type="password" id="password" required
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500 transition-all duration-300 ease-in-out">
+                </div>
+                <button type="submit"
+                    class="w-full bg-lime-400 hover:bg-lime-500 text-black font-semibold py-2 rounded-md shadow hover:shadow-lg transition duration-200 ease-in-out">
+                    Login
+                </button>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signupForm" class="space-y-5 hidden">
+                <div>
+                    <label for="name" class="block text-sm font-medium">Full Name</label>
+                    <input type="text" id="name" required
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500 transition-all duration-300 ease-in-out">
+                </div>
+                <div>
+                    <label for="signupEmail" class="block text-sm font-medium">Email</label>
+                    <input type="email" id="signupEmail" required
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500 transition-all duration-300 ease-in-out">
+                </div>
+                <div>
+                    <label for="signupPassword" class="block text-sm font-medium">Password</label>
+                    <input type="password" id="signupPassword" required
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500 transition-all duration-300 ease-in-out">
+                </div>
+                <div>
+                    <label for="confirmPassword" class="block text-sm font-medium">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500 transition-all duration-300 ease-in-out">
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                    <input type="checkbox" id="terms" required class="accent-lime-500">
+                    <label for="terms">I agree to the <a href="#"
+                            class="text-lime-500 hover:underline">Terms</a></label>
+                </div>
+                <button type="submit"
+                    class="w-full bg-lime-400 hover:bg-lime-500 text-black font-semibold py-2 rounded-md shadow hover:shadow-lg transition duration-200 ease-in-out">
+                    Sign Up
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Firebase Auth -->
+    <script type="module" src="/JS/login.js"></script>
+    <script src="JS/donation.js"></script>
+    <script src="JS/section-1.js"></script>
+    <script src="JS/section-2.js"></script>
+    <script src="JS/section-3.js"></script>
+    <script src="JS/section-4.js"></script>
+    <script src="JS/section-5.js"></script>
+
+</body>
+
+</html>

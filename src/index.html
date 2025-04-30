@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCSEwO83OIpu9QDXNAlS1kjm0r-chWiw5I",
+            authDomain: "donation-nub-project.firebaseapp.com",
+            projectId: "donation-nub-project",
+            storageBucket: "donation-nub-project.firebasestorage.app",
+            messagingSenderId: "964144828200",
+            appId: "1:964144828200:web:6373814b19f19709ab8a1d"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HopeFund BD</title>
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+    <!-- Lexend Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet" />
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- DaisyUI + Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+<!-- Modify the navigation to show user info -->
+<nav
+    class="fixed top-0 left-0 w-full max-w-12xl mx-auto px-4 py-3 flex justify-between items-center p-10 py-10 bg-zinc-100 shadow-lg">
+    <!-- Logo Section -->
+    <div class="flex items-center space-x-2 hidden md:flex">
+        <img src="assets/logo.png" alt="Logo">
+        <span class="font-bold text-2xl">HopeFund BD</span>
+    </div>
+
+    <div class="flex items-center gap-2">
+        <img src="assets/coin.png" alt="Coin Icon">
+        <h1 id="mainBalance" class="text-xl">5500 BDT</h1>
+    </div>
+
+    <!-- User Info Section -->
+    <div id="userInfo" class="hidden flex items-center gap-2">
+        <p id="userName" class="text-xl font-semibold"></p>
+        <p id="userEmail" class="text-lg text-gray-600"></p>
+    </div>
+</nav>
+
+
+
+    <main class="max-w-screen-xl mx-auto px-16 lg:px-28 mt-24">
+        <p id="authMessage" class="text-sm text-gray-600 mt-2"></p>
+        </div>
+
+        <section class="flex justify-center py-10 gap-4">
+            <div>
+                <button id="donationTab"
+                    class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500">
+                    Donation
+                </button>
+            </div>
+            <div>
+                <button id="historyTab"
+                    class="bg-black-100 text-black font-semibold px-5 py-2 rounded-md border-solid border-2 border-gray-300 hover:bg-lime-500">
+                    History
+                </button>
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section id="section-1"
+            class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
+            <div class="w-96">
+                <img src="assets/feni.png" alt="">
+            </div>
+
+            <div>
+                <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
+                    <img src="assets/coin.png" alt="">
+                    <h1 id="accountBalance" class="text-xl">0 BDT</h1>
+                </div>
+                <div class="flex flex-col">
+                    <h2 class="font-bold text-md mt-3">Donate for Flood at Noakhali, Bangladesh</h2>
+                    <p class="text-sm text-gray-500">The recent floods in Noakhali have caused significant damage to
+                        <br> homes
+                        infrastructure. Your donation will help provide essential <br>supplies and to those affected by
+                        this
+                        disaster. Every contribution, <br>big or small, makes a difference. Please join us in supporting
+                        the
+                        relief <br> efforts and making a positive impact on the lives of those in need.
+                    </p>
+
+                    <input id="input-donation-1" type="text"
+                        class="bg-white text-black font-semibold px-5 py-2 rounded-md border-solid border-2 border-gray-300 mt-3"
+                        placeholder="Write Donation Amount">
+
+                    <button id="donation-1"
+                        class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500 mt-3">Donate
+                        Now</button>
+
+                    <dialog id="my_modal_1" class="modal">
+                        <div class="modal-box text-center">
+                            <h3 class="text-4xl font-bold">Congrats!</h3>
+                            <div class="mt-6">
+                                <img class="w-8 mx-auto" src="./assets/coin.png" alt="Donation Coin">
+                            </div>
+                            <div class="mt-2 text-lg font-medium mb-2">You Have Donated for Humankind</div>
+                            <div class="text-black-500 font-bold text-2xl">Successfully</div>
+                            <form method="dialog">
+                                <button id="closeBtn"
+                                    class="mt-3 bg-gray-300 text-md text-black-100 px-6 py-2 rounded-2xl hover:bg-gray-400">Close</button>
+                            </form>
+                        </div>
+                    </dialog>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <div id="donationCards" class="mt-5 hidden">
+            <div id="historyContent" class="space-y-4"></div>
+        </div>
+        <!--section 2 start  -->
+        <section id="section-2"
+            class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
+            <div class="w-96">
+                <img src="assets/noakhali.png" alt="" srcset="">
+            </div>
+
+            <div>
+                <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
+                    <img src="assets/coin.png" alt="">
+                    <h1 id="accountBalance-2" class="text-xl">600 BDT</h1>
+                </div>
+                <div class="flex flex-col ">
+                    <h2 class="font-bold text-md mt-3">Donate for Flood Relief in Feni,Bangladesh</h2>
+                    <p class="text-sm text-gray-500">The recent floods in Feni have devastated local communities,
+                        leading <br> to severe
+                        disruption and loss. Your generous
+                        donation will help <br>provide immediate aid, including food, clean water, and medical
+                        <br>supplies, to those
+                        affected by this
+                        calamity. Together, we can offer <br>crucial support and help rebuild lives in the aftermath of
+                        this disaster. <br>
+                        Every
+                        contribution counts towards making a real difference. <br>Please consider donating today to
+                        assist those in urgent
+                        need.
+                    </p>
+                    <input id="input-donation-2" type="text"
+                        class="bg-black-100 text-black font-semibold px-5 py-2 rounded-md border-solid border-2 border-gray-300 mt-3"
+                        placeholder="Write Donation Amount">
+                    <button id="donation-2"
+                        class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500 mt-3">Donate
+                        Now</button>
+
+                    <dialog id="my_modal_2" class="modal">
+                        <div class="modal-box text-center">
+                            <h3 class="text-4xl font-bold">Congrats!</h3>
+                            <div class="mt-6">
+                                <img class="w-8 mx-auto" src="./assets/coin.png" alt="Donation Coin">
+                            </div>
+                            <div class="mt-2 text-lg font-medium mb-2">
+                                You Have Donated for Humankind
+                            </div>
+                            <div class="text-black-500 font-bold text-2xl">Successfully</div>
+                            <button id="closeBtn-2"
+                                class="mt-3 bg-gray-300 text-md text-black-100 px-6 py-2 rounded-2xl hover:bg-gray-400"
+                                onclick="document.getElementById('my_modal_2').close()">Close</button>
+                        </div>
+                    </dialog>
+                </div>
+            </div>
+        </section>
+
+        <!-- section 3 start -->
+        <section id="section-3"
+            class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
+            <div class="w-96">
+                <img src="assets/quota-protest.png" alt="" srcset="">
+            </div>
+
+            <div>
+                <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
+                    <img src="assets/coin.png" alt="">
+                    <h1 id="accountBalance-3" class="text-xl">2400 BDT</h1>
+                </div>
+                <div class="flex flex-col ">
+                    <h2 class="font-bold text-md mt-3">Aid for Injured in the Quota Movement</h2>
+                    <p class="text-sm text-gray-500">The recent Quota movement has resulted in numerous injuries and
+                        <br> significant hardship for many individuals. Your support
+                        is crucial in <br> providing medical assistance, rehabilitation, and necessary supplies <br> to
+                        those affected. By contributing,
+                        you help ensure that injured <br> individuals receive the care and support they need during this
+                        <br> challenging time. Every
+                        donation plays a vital role in alleviating their <br> suffering and aiding in their recovery.
+                        Please consider making a <br> donation to support these brave individuals in their time of need.
+                    </p>
+                    <input id="input-donation-3" type="text"
+                        class="bg-black-100 text-black font-semibold px-5 py-2 rounded-md border-solid border-2 border-gray-300 mt-3"
+                        placeholder="Write Donation Amount">
+                    <button id="donation-3"
+                        class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500 mt-3">Donate
+                        Now</button>
+
+                    <dialog id="my_modal_3" class="modal">
+                        <div class="modal-box text-center">
+                            <h3 class="text-4xl font-bold">Congrats!</h3>
+                            <div class="mt-6">
+                                <img class="w-8 mx-auto" src="./assets/coin.png" alt="Donation Coin">
+                            </div>
+                            <div class="mt-2 text-lg font-medium mb-2">You Have Donated for Humankind</div>
+                            <div class="text-black-500 font-bold text-2xl">Successfully</div>
+                            <button id="closeBtn-3"
+                                class="mt-3 bg-gray-300 text-md text-black-100 px-6 py-2 rounded-2xl hover:bg-gray-400"
+                                onclick="document.getElementById('my_modal_3').close()">Close</button>
+                        </div>
+                    </dialog>
+                </div>
+            </div>
+        </section>
+
+        <!-- section 4 start -->
+        <section id="section-4"
+            class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
+            <div class="w-96">
+                <img src="assets/food-relief.jpg" alt="">
+            </div>
+
+            <div>
+                <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
+                    <img src="assets/coin.png" alt="">
+                    <h1 id="accountBalance-4" class="text-xl">50 BDT</h1>
+                </div>
+                <div class="flex flex-col">
+                    <h2 class="font-bold text-md mt-3">Emergency Food Kits for Flood Victims</h2>
+                    <p class="text-sm text-gray-500">
+                        Many families have lost access to food due to flooding across Bangladesh. <br>
+                        Your donation will help provide emergency kits containing rice, lentils, oil, <br>
+                        and clean drinking water to families struggling for survival. Every kit <br>
+                        ensures a family doesn't go hungry. Your kindness can save lives today. <br>
+                        This isn't just food — it's hope, care, and a reminder that they are not alone. <br>
+                        Stand with the flood-affected families and help us make a real difference.
+                    </p>
+
+
+
+                    <input id="input-donation-4" type="text"
+                        class="bg-white text-black font-semibold px-5 py-2 rounded-md border-solid border-2 border-gray-300 mt-3"
+                        placeholder="Write Donation Amount">
+                    <button id="donation-4"
+                        class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500 mt-3">Donate
+                        Now</button>
+
+                    <dialog id="my_modal_4" class="modal">
+                        <div class="modal-box text-center">
+                            <h3 class="text-4xl font-bold">Congrats!</h3>
+                            <div class="mt-6">
+                                <img class="w-8 mx-auto" src="./assets/coin.png" alt="Donation Coin">
+                            </div>
+                            <div class="mt-2 text-lg font-medium mb-2">You Have Donated for Humankind</div>
+                            <div class="text-black-500 font-bold text-2xl">Successfully</div>
+                            <button id="closeBtn-4"
+                                class="mt-3 bg-gray-300 text-md text-black-100 px-6 py-2 rounded-2xl hover:bg-gray-400"
+                                onclick="document.getElementById('my_modal_4').close()">Close</button>
+                        </div>
+                    </dialog>
+                </div>
+            </div>
+        </section>
+        <!-- section 5 start -->
+        <section id="section-5"
+            class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
+            <div class="w-96">
+                <img src="assets/winter-clothes.jpg" alt="">
+            </div>
+
+            <div>
+                <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
+                    <img src="assets/coin.png" alt="Coin">
+                    <h1 id="accountBalance-5" class="text-xl">200 BDT</h1>
+                </div>
+                <div class="flex flex-col">
+                    <h2 class="font-bold text-md mt-3">Winter Relief: Wrap a Family in Kindness</h2>
+                    <p class="text-sm text-gray-500">
+                        As winter sets in, many families in rural villages are left without <br>
+                        proper protection from the cold. Your donation will help provide <br>
+                        warm clothing, blankets, and essential supplies to those in need. <br>
+                        Every item you give brings warmth, comfort, and care to someone <br>
+                        struggling through the harsh season. Let’s join hands to wrap these <br>
+                        families in kindness and bring hope during the coldest days.
+                    </p>
+
+
+                    <input id="input-donation-5" type="text"
+                        class="bg-white text-black font-semibold px-5 py-2 rounded-md border-solid border-2 border-gray-300 mt-3"
+                        placeholder="Write Donation Amount">
+                    <button id="donation-5"
+                        class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500 mt-3">Donate
+                        Now</button>
+
+                    <dialog id="my_modal_5" class="modal">
+                        <div class="modal-box text-center">
+                            <h3 class="text-4xl font-bold">Congrats!</h3>
+                            <div class="mt-6">
+                                <img class="w-8 mx-auto" src="./assets/coin.png" alt="Donation Coin">
+                            </div>
+                            <div class="mt-2 text-lg font-medium mb-2">You Have Donated for Humankind</div>
+                            <div class="text-black-500 font-bold text-2xl">Successfully</div>
+                            <button id="closeBtn-5"
+                                class="mt-3 bg-gray-300 text-md text-black-100 px-6 py-2 rounded-2xl hover:bg-gray-400"
+                                onclick="document.getElementById('my_modal_5').close()">Close</button>
+                        </div>
+                    </dialog>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+    <script src="../JS/donation.js"></script>
+    <script src="../JS/section-1.js"></script>
+    <script src="../JS/section-2.js"></script>
+    <script src="../JS/section-3.js"></script>
+    <script src="../JS/section-4.js"></script>
+    <script src="../JS/section-5.js"></script>
+    <script src="../JS/login.js"></script>
+    <script src="../JS/user.js"></script>
+
+
+    <!-- Footer Start -->
+    <footer id="footerSection" class="bg-zinc-100 border-t border-gray-300 mt-10">
+        <div
+            class="max-w-screen-xl mx-auto px-6 py-10 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-6">
+            <!-- Logo and Name -->
+            <div class="flex items-center gap-3">
+                <img src="assets/logo.png" alt="HopeFund BD Logo" class="w-10 h-10" />
+                <h2 class="text-2xl font-bold">HopeFund BD</h2>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="flex gap-6 flex-wrap justify-center sm:justify-start text-gray-700 font-medium">
+                <a href="#section-1" class="hover:text-lime-500 transition">Donate</a>
+                <a href="#donationCards" class="hover:text-lime-500 transition">History</a>
+                <a href="blog.html" class="hover:text-lime-500 transition">Blog</a>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="flex gap-4">
+                <a href="https://www.facebook.com/NUBDhaka"
+                    class="text-gray-700 hover:text-lime-500 transition text-xl"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/company/nubbdofficial/" target="_blank"
+                    class="text-gray-700 hover:text-lime-500 transition text-xl"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/northernuniversitybangladesh/"
+                    class="text-gray-700 hover:text-lime-500 transition text-xl"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="text-center text-sm text-gray-500 py-4 border-t border-gray-300">
+            &copy; 2025 HopeFund BD. All rights reserved.
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+
+</body>
+
+</html>
