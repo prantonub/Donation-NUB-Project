@@ -19,8 +19,8 @@
         </div>
     </nav>
 
-    <!-- Auth Container with Background -->
-    <section class="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center px-4 pt-32"
+    <!-- Auth Container -->
+    <section class="min-h-screen bg-cover bg-center flex items-center justify-center px-4 pt-32"
         style="background-image: url('./src/assets/bg-image.jpg')">
 
         <div class="bg-white bg-opacity-80 backdrop-blur-sm p-8 rounded-2xl shadow-xl w-full max-w-md text-gray-800">
@@ -42,15 +42,15 @@
                 <div>
                     <label for="email" class="block text-sm font-medium">Email</label>
                     <input type="email" id="email" required
-                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500 transition-all duration-300 ease-in-out">
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500">
                 </div>
                 <div>
                     <label for="password" class="block text-sm font-medium">Password</label>
                     <input type="password" id="password" required
-                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500 transition-all duration-300 ease-in-out">
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500">
                 </div>
                 <button type="submit"
-                    class="w-full bg-lime-400 hover:bg-lime-500 text-black font-semibold py-2 rounded-md shadow hover:shadow-lg transition duration-200 ease-in-out">
+                    class="w-full bg-lime-400 hover:bg-lime-500 text-black font-semibold py-2 rounded-md shadow hover:shadow-lg">
                     Login
                 </button>
             </form>
@@ -60,22 +60,22 @@
                 <div>
                     <label for="name" class="block text-sm font-medium">Full Name</label>
                     <input type="text" id="name" required
-                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500 transition-all duration-300 ease-in-out">
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500">
                 </div>
                 <div>
                     <label for="signupEmail" class="block text-sm font-medium">Email</label>
                     <input type="email" id="signupEmail" required
-                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500 transition-all duration-300 ease-in-out">
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500">
                 </div>
                 <div>
                     <label for="signupPassword" class="block text-sm font-medium">Password</label>
                     <input type="password" id="signupPassword" required
-                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500 transition-all duration-300 ease-in-out">
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500">
                 </div>
                 <div>
                     <label for="confirmPassword" class="block text-sm font-medium">Confirm Password</label>
                     <input type="password" id="confirmPassword" required
-                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500 transition-all duration-300 ease-in-out">
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-lime-400 focus:border-lime-500">
                 </div>
                 <div class="flex items-center gap-2 text-sm">
                     <input type="checkbox" id="terms" required class="accent-lime-500">
@@ -83,22 +83,24 @@
                             class="text-lime-500 hover:underline">Terms</a></label>
                 </div>
                 <button type="submit"
-                    class="w-full bg-lime-400 hover:bg-lime-500 text-black font-semibold py-2 rounded-md shadow hover:shadow-lg transition duration-200 ease-in-out">
+                    class="w-full bg-lime-400 hover:bg-lime-500 text-black font-semibold py-2 rounded-md shadow hover:shadow-lg">
                     Sign Up
                 </button>
             </form>
+
+            <!-- Google Login Button -->
+            <button id="googleLoginBtn" type="button"
+                class="flex items-center justify-center gap-2 bg-white border border-gray-300 text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-md w-full mt-6 shadow-sm">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Icon"
+                    class="w-5 h-5">
+                <span>Continue with Google</span>
+            </button>
+
         </div>
     </section>
 
     <!-- Scripts -->
     <script type="module" src="./js/login.js"></script>
-    <script src="./js/donation.js"></script>
-    <script src="./js/section-1.js"></script>
-    <script src="./js/section-2.js"></script>
-    <script src="./js/section-3.js"></script>
-    <script src="./js/section-4.js"></script>
-    <script src="./js/section-5.js"></script>
-
 </body>
 
 </html>

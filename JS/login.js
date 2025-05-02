@@ -1,31 +1,35 @@
-// Firebase Setup
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  updateProfile
+  updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
+// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyBJRf4PnsudBwNV4xJYc6RJITo6W0vL1_s",
   authDomain: "login-from-cd3e0.firebaseapp.com",
   projectId: "login-from-cd3e0",
   storageBucket: "login-from-cd3e0.appspot.com",
   messagingSenderId: "733725777713",
-  appId: "1:733725777713:web:4a2f9d3344e00f6261da10",
-  measurementId: "G-5BBTCQWJ8Y"
+  appId: "1:733725777713:web:4a2f9d3344e00f6261da10"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+auth.useDeviceLanguage();
 
-// Form Toggle
+// UI Elements
 const loginTab = document.getElementById('loginTab');
 const signupTab = document.getElementById('signupTab');
 const loginForm = document.getElementById('loginForm');
 const signupForm = document.getElementById('signupForm');
 
+// Form Toggle
 loginTab.addEventListener('click', () => {
   loginForm.classList.remove('hidden');
   signupForm.classList.add('hidden');
@@ -40,27 +44,28 @@ signupTab.addEventListener('click', () => {
   loginTab.classList.remove('text-lime-600');
 });
 
-// Login Logic
+// Login
 loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value.trim();
 
-  if (!email || !password) {
-    alert("Please fill in both fields.");
-    return;
-  }
-
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-    // Redirect to the main website page without showing an alert
-    window.location.href = "./home.html";  // Replace with your main website page URL
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    localStorage.setItem("hopefundUser", JSON.stringify({
+      name: user.displayName || "User",
+      email: user.email
+    }));
+
+    window.location.href = "./home.html";
   } catch (error) {
     alert("Login Error: " + getErrorMessage(error.code));
   }
 });
 
-// Signup Logic
+// Signup
 signupForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -70,51 +75,57 @@ signupForm.addEventListener('submit', async (e) => {
   const confirmPassword = document.getElementById('confirmPassword').value.trim();
   const terms = document.getElementById('terms').checked;
 
-  // Basic validation
-  if (!name || !email || !password || !confirmPassword) {
-    alert("Please fill in all the fields.");
-    return;
-  }
-
   if (password !== confirmPassword) {
     alert("Passwords do not match.");
-    return;
-  }
-
-  if (password.length < 6) {
-    alert("Password must be at least 6 characters long.");
-    return;
-  }
-
-  if (!terms) {
-    alert("Please agree to the Terms and Conditions.");
     return;
   }
 
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     await updateProfile(userCredential.user, { displayName: name });
-    alert("Signup successful! You can now login.");
-    loginTab.click(); // Switch to login tab
+
+    alert("Signup successful! You can now log in.");
+    loginTab.click();
   } catch (error) {
     alert("Signup Error: " + getErrorMessage(error.code));
   }
 });
 
-// Helper function to provide specific error messages
-function getErrorMessage(errorCode) {
-  switch (errorCode) {
-    case 'auth/email-already-in-use':
-      return 'The email address is already in use by another account.';
-    case 'auth/invalid-email':
-      return 'The email address is not valid.';
-    case 'auth/weak-password':
-      return 'The password is too weak. It should be at least 6 characters.';
-    case 'auth/user-not-found':
-      return 'No user found with this email address.';
-    case 'auth/wrong-password':
-      return 'Incorrect password. Please try again.';
-    default:
-      return 'An error occurred. Please try again later.';
+// Google Login
+document.getElementById("googleLoginBtn").addEventListener("click", async () => {
+  const provider = new GoogleAuthProvider();
+
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+
+    localStorage.setItem("hopefundUser", JSON.stringify({
+      name: user.displayName || "User",
+      email: user.email
+    }));
+
+    window.location.href = "./home.html";
+  } catch (error) {
+    console.error("Google Login Error:", error);
+  
+  }
+});
+
+// Auto Redirect if Already Logged In
+onAuthStateChanged(auth, (user) => {
+  if (user && window.location.pathname.includes("auth")) {
+    window.location.href = "./home.html";
+  }
+});
+
+// Error Code Mapping
+function getErrorMessage(code) {
+  switch (code) {
+    case 'auth/email-already-in-use': return 'Email already in use.';
+    case 'auth/invalid-email': return 'Invalid email address.';
+    case 'auth/user-not-found': return 'User not found.';
+    case 'auth/wrong-password': return 'Incorrect password.';
+    case 'auth/popup-closed-by-user': return 'Google popup was closed.';
+    default: return 'An error occurred. Please try again.';
   }
 }
