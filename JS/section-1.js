@@ -4,6 +4,7 @@ const accountBalance = document.getElementById("accountBalance");
 const mainBalance = document.getElementById("mainBalance");
 const modal = document.getElementById("my_modal_1");
 const historyContent = document.getElementById("historyContent");
+const regionFilter = document.getElementById("regionFilter");
 
 // Only allow numbers in input
 donationInput.addEventListener("input", () => {
@@ -35,10 +36,11 @@ donateBtn?.addEventListener("click", () => {
   // Format message
   const time = new Date().toString();
 
-  // Create Tailwind-styled history card
+  // Create Tailwind-styled history card with region tag
   const historyEntry = document.createElement("div");
   historyEntry.className =
     "bg-green-50 border-2 border-lime-500 rounded-xl shadow p-5 text-gray-800 my-4 hover:shadow-lg transition-shadow duration-300";
+  historyEntry.setAttribute("data-region", "noakhali"); // 👈 Important for filtering
   historyEntry.innerHTML = `
     <h3 class="text-lg font-semibold text-lime-600">${amount} Taka Donated</h3>
     <p class="text-base mt-2 text-gray-800">For Flood at <span class="font-medium text-lime-500">Noakhali, Bangladesh</span></p>
@@ -50,4 +52,20 @@ donateBtn?.addEventListener("click", () => {
 
   // Clear input
   donationInput.value = "";
+});
+
+// Region filter logic
+regionFilter.addEventListener("change", () => {
+  const selectedRegion = regionFilter.value;
+  const historyEntries = document.querySelectorAll("#historyContent > div");
+
+  historyEntries.forEach(entry => {
+    const region = entry.getAttribute("data-region");
+
+    if (selectedRegion === "all" || region === selectedRegion) {
+      entry.style.display = "block";
+    } else {
+      entry.style.display = "none";
+    }
+  });
 });

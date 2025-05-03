@@ -72,6 +72,26 @@
                     History
                 </button>
             </div>
+       
+                <!-- Filter Dropdown -->
+                <div class="flex justify-end items-center mb-4">
+                    <label for="regionFilter" class="mr-2 font-semibold text-gray-700">Filter by Region:</label>
+                    <select id="regionFilter" class="px-4 py-2 border border-gray-300 rounded-md">
+                        <option value="all">All</option>
+                        <option value="noakhali">Noakhali</option>
+                        <option value="feni">Feni</option>
+                        <option value="quota">Quota Movement</option>
+                        <option value="food">Food Relief</option>
+                        <option value="winter">Winter Clothes</option>
+                    </select>
+                </div>
+            
+                <!-- Donation Cards (example container) -->
+                <div id="donationContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Cards inserted here dynamically or statically -->
+                </div>
+            
+
         </section>
 
         <!-- Donation Section -->
@@ -334,6 +354,7 @@
     <script src="JS/section-5.js"></script>
     <script src="JS/login.js"></script>
     <script src="JS/user.js"></script>
+    <script src="JS/filter.js"></script>
 
 
     <!-- Footer Start -->

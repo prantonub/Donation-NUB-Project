@@ -4,8 +4,9 @@ const accountBalance3 = document.getElementById("accountBalance-3");
 const mainBalance3 = document.getElementById("mainBalance");
 const modal3 = document.getElementById("my_modal_3");
 const historyContent3 = document.getElementById("historyContent");
+const regionFilter3 = document.getElementById("regionFilter");
 
-// Allow only numeric input
+// Only allow numbers in input
 donationInput3.addEventListener("input", () => {
   donationInput3.value = donationInput3.value.replace(/[^0-9]/g, "");
 });
@@ -35,10 +36,11 @@ donateBtn3?.addEventListener("click", () => {
   // Format date/time
   const time = new Date().toString();
 
-  // Create a history card
+  // Create a history card with a data-region attribute for filtering
   const historyEntry = document.createElement("div");
   historyEntry.className =
     "bg-lime-50 border-2 border-green-500 rounded-xl shadow p-5 text-gray-800 my-4 hover:shadow-lg transition-shadow duration-300";
+  historyEntry.setAttribute("data-region", "quota"); // Set the region for filtering
   historyEntry.innerHTML = `
     <h3 class="text-lg font-semibold text-green-500">${amount} Taka Donated</h3>
     <p class="text-base mt-2 text-gray-800">For <span class="font-medium text-green-500">Quota Movement Support</span></p>
@@ -50,4 +52,21 @@ donateBtn3?.addEventListener("click", () => {
 
   // Clear input field
   donationInput3.value = "";
+});
+
+// Region filter logic
+regionFilter.addEventListener("change", () => {
+  const selectedRegion = regionFilter.value;
+  const historyEntries = document.querySelectorAll("#historyContent > div");
+
+  historyEntries.forEach(entry => {
+    const region = entry.getAttribute("data-region");
+
+    // Show entry if the region matches or if "all" is selected
+    if (selectedRegion === "all" || region === selectedRegion) {
+      entry.style.display = "block";
+    } else {
+      entry.style.display = "none";
+    }
+  });
 });
