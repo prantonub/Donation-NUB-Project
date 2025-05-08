@@ -52,12 +52,9 @@
             <h1 id="mainBalance" class="text-xl">5500 BDT</h1>
         </div>
     </nav>
-
-
-
     <main class="max-w-screen-xl mx-auto px-16 lg:px-28 mt-24">
         <p id="authMessage" class="text-sm text-gray-600 mt-2"></p>
-        </div>
+        
 
         <section class="flex justify-center py-10 gap-4">
             <div>
@@ -72,81 +69,66 @@
                     History
                 </button>
             </div>
-       
-                <!-- Filter Dropdown -->
-                <div class="flex justify-end items-center mb-4">
-                    <label for="regionFilter" class="mr-2 font-semibold text-gray-700">Filter by Region:</label>
-                    <select id="regionFilter" class="px-4 py-2 border border-gray-300 rounded-md">
-                        <option value="all">All</option>
-                        <option value="noakhali">Noakhali</option>
-                        <option value="feni">Feni</option>
-                        <option value="quota">Quota Movement</option>
-                        <option value="food">Food Relief</option>
-                        <option value="winter">Winter Clothes</option>
-                    </select>
-                </div>
-            
-                <!-- Donation Cards (example container) -->
-                <div id="donationContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <!-- Cards inserted here dynamically or statically -->
-                </div>
-            
-
         </section>
 
         <!-- Donation Section -->
-        <section id="section-1"
-            class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
-            <div class="w-96">
-                <img src="/src/assets/noakhali.png" alt="">
-            </div>
+<section id="section-1"
+    class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
+    <div class="w-96">
+        <img src="/src/assets/noakhali.png" alt="">
+    </div>
 
-            <div>
-                <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
-                    <img src="/src/assets/coin.png" alt="">
-                    <h1 id="accountBalance" class="text-xl">0 BDT</h1>
-                </div>
-                <div class="flex flex-col">
-                    <h2 class="font-bold text-md mt-3">Donate for Flood at Noakhali, Bangladesh</h2>
-                    <p class="text-sm text-gray-500">The recent floods in Noakhali have caused significant damage to
-                        <br> homes
-                        infrastructure. Your donation will help provide essential <br>supplies and to those affected by
-                        this
-                        disaster. Every contribution, <br>big or small, makes a difference. Please join us in supporting
-                        the
-                        relief <br> efforts and making a positive impact on the lives of those in need.
-                    </p>
-
-                    <input id="input-donation-1" type="text"
-                        class="bg-white text-black font-semibold px-5 py-2 rounded-md border-solid border-2 border-gray-300 mt-3"
-                        placeholder="Write Donation Amount">
-
-                    <button id="donation-1"
-                        class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500 mt-3">Donate
-                        Now</button>
-
-                    <dialog id="my_modal_1" class="modal">
-                        <div class="modal-box text-center">
-                            <h3 class="text-4xl font-bold">Congrats!</h3>
-                            <div class="mt-6">
-                                <img class="w-8 mx-auto" src="/src/assets/coin.png" alt="Donation Coin">
-                            </div>
-                            <div class="mt-2 text-lg font-medium mb-2">You Have Donated for Humankind</div>
-                            <div class="text-black-500 font-bold text-2xl">Successfully</div>
-                            <form method="dialog">
-                                <button id="closeBtn"
-                                    class="mt-3 bg-gray-300 text-md text-black-100 px-6 py-2 rounded-2xl hover:bg-gray-400">Close</button>
-                            </form>
-                        </div>
-                    </dialog>
-                </div>
-            </div>
-        </section>
-
-        <!-- History Section -->
-        <div id="donationCards" class="mt-5 hidden">
-            <div id="historyContent" class="space-y-4"></div>
+    <div>
+        <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
+            <img src="/src/assets/coin.png" alt="">
+            <h1 id="accountBalance" class="text-xl">0 BDT</h1>
         </div>
+        <div class="flex flex-col">
+            <h2 class="font-bold text-md mt-3">Donate for Flood at Noakhali, Bangladesh</h2>
+            <p class="text-sm text-gray-500">The recent floods in Noakhali have caused significant damage to
+                <br> homes infrastructure. Your donation will help provide essential <br>supplies to those affected by
+                this disaster. Every contribution, <br>big or small, makes a difference. Please join us in supporting
+                the relief <br> efforts and making a positive impact on the lives of those in need.
+            </p>
+
+            <input id="input-donation-1" type="text"
+                class="bg-white text-black font-semibold px-5 py-2 rounded-md border-solid border-2 border-gray-300 mt-3"
+                placeholder="Write Donation Amount">
+
+            <button id="donation-1"
+                class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500 mt-3">Donate
+                Now</button>
+
+            <!-- View History Button -->
+            <button id="view-history-btn-1"
+                class="bg-blue-400 text-white font-semibold px-6 py-2 rounded-md shadow hover:bg-blue-500 mt-3">
+                View History
+            </button>
+
+            <!-- Success Modal -->
+            <dialog id="my_modal_1" class="modal">
+                <div class="modal-box text-center">
+                    <h3 class="text-4xl font-bold">Congrats!</h3>
+                    <div class="mt-6">
+                        <img class="w-8 mx-auto" src="/src/assets/coin.png" alt="Donation Coin">
+                    </div>
+                    <div class="mt-2 text-lg font-medium mb-2">You Have Donated for Humankind</div>
+                    <div class="text-black-500 font-bold text-2xl">Successfully</div>
+                    <form method="dialog">
+                        <button id="closeBtn"
+                            class="mt-3 bg-gray-300 text-md text-black-100 px-6 py-2 rounded-2xl hover:bg-gray-400">Close</button>
+                    </form>
+                </div>
+            </dialog>
+        </div>
+    </div>
+</section>
+
+<!-- History Section -->
+ 
+<div id="donationCards-1" class="mt-5 hidden">
+    <div id="historyContent-1" class="space-y-4"></div>
+</div>
         <!--section 2 start  -->
         <section id="section-2"
             class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
@@ -157,7 +139,7 @@
             <div>
                 <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
                     <img src="/src/assets/coin.png" alt="">
-                    <h1 id="accountBalance-2" class="text-xl">600 BDT</h1>
+                    <h1 id="accountBalance-2" class="text-xl">0 BDT</h1>
                 </div>
                 <div class="flex flex-col ">
                     <h2 class="font-bold text-md mt-3">Donate for Flood Relief in Feni,Bangladesh</h2>
@@ -181,6 +163,12 @@
                         class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500 mt-3">Donate
                         Now</button>
 
+            <!-- View History Button -->
+            <button id="view-history-btn-2"
+                class="bg-blue-400 text-white font-semibold px-6 py-2 rounded-md shadow hover:bg-blue-500 mt-3">
+                View History
+            </button>
+
                     <dialog id="my_modal_2" class="modal">
                         <div class="modal-box text-center">
                             <h3 class="text-4xl font-bold">Congrats!</h3>
@@ -200,6 +188,11 @@
             </div>
         </section>
 
+<!-- History Section -->
+<div id="donationCards-2" class="mt-5 hidden">
+    <div id="historyContent-2" class="space-y-4"></div>
+</div>
+
         <!-- section 3 start -->
         <section id="section-3"
             class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
@@ -210,7 +203,7 @@
             <div>
                 <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
                     <img src="/src/assets/coin.png" alt="">
-                    <h1 id="accountBalance-3" class="text-xl">2400 BDT</h1>
+                    <h1 id="accountBalance-3" class="text-xl">0 BDT</h1>
                 </div>
                 <div class="flex flex-col ">
                     <h2 class="font-bold text-md mt-3">Aid for Injured in the Quota Movement</h2>
@@ -230,6 +223,10 @@
                         class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500 mt-3">Donate
                         Now</button>
 
+            <button id="view-history-btn-3"
+                class="bg-blue-400 text-white font-semibold px-6 py-2 rounded-md shadow hover:bg-blue-500 mt-3">
+                View History
+            </button>
                     <dialog id="my_modal_3" class="modal">
                         <div class="modal-box text-center">
                             <h3 class="text-4xl font-bold">Congrats!</h3>
@@ -247,6 +244,10 @@
             </div>
         </section>
 
+        <!-- History Section -->
+        <div id="donationCards-3" class="mt-5 hidden">
+            <div id="historyContent-3" class="space-y-4"></div>
+        </div>
         <!-- section 4 start -->
         <section id="section-4"
             class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
@@ -257,7 +258,7 @@
             <div>
                 <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
                     <img src="/src/assets/coin.png" alt="">
-                    <h1 id="accountBalance-4" class="text-xl">50 BDT</h1>
+                    <h1 id="accountBalance-4" class="text-xl">0 BDT</h1>
                 </div>
                 <div class="flex flex-col">
                     <h2 class="font-bold text-md mt-3">Emergency Food Kits for Flood Victims</h2>
@@ -271,13 +272,17 @@
                     </p>
 
 
-
                     <input id="input-donation-4" type="text"
                         class="bg-white text-black font-semibold px-5 py-2 rounded-md border-solid border-2 border-gray-300 mt-3"
                         placeholder="Write Donation Amount">
                     <button id="donation-4"
                         class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500 mt-3">Donate
                         Now</button>
+
+            <button id="view-history-btn-4"
+                class="bg-blue-400 text-white font-semibold px-6 py-2 rounded-md shadow hover:bg-blue-500 mt-3">
+                View History
+            </button>
 
                     <dialog id="my_modal_4" class="modal">
                         <div class="modal-box text-center">
@@ -295,6 +300,12 @@
                 </div>
             </div>
         </section>
+
+        <!-- History Section -->
+        <div id="donationCards-4" class="mt-5 hidden">
+            <div id="historyContent-4" class="space-y-4"></div>
+        </div>
+
         <!-- section 5 start -->
         <section id="section-5"
             class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
@@ -305,7 +316,7 @@
             <div>
                 <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
                     <img src="/src/assets/coin.png" alt="Coin">
-                    <h1 id="accountBalance-5" class="text-xl">200 BDT</h1>
+                    <h1 id="accountBalance-5" class="text-xl">0 BDT</h1>
                 </div>
                 <div class="flex flex-col">
                     <h2 class="font-bold text-md mt-3">Winter Relief: Wrap a Family in Kindness</h2>
@@ -318,13 +329,17 @@
                         families in kindness and bring hope during the coldest days.
                     </p>
 
-
                     <input id="input-donation-5" type="text"
                         class="bg-white text-black font-semibold px-5 py-2 rounded-md border-solid border-2 border-gray-300 mt-3"
                         placeholder="Write Donation Amount">
                     <button id="donation-5"
                         class="bg-lime-400 text-black font-semibold px-6 py-2 rounded-md shadow hover:bg-lime-500 mt-3">Donate
                         Now</button>
+
+            <button id="view-history-btn-5"
+                class="bg-blue-400 text-white font-semibold px-6 py-2 rounded-md shadow hover:bg-blue-500 mt-3">
+                View History
+            </button>
 
                     <dialog id="my_modal_5" class="modal">
                         <div class="modal-box text-center">
@@ -343,7 +358,10 @@
             </div>
         </section>
 
-
+        <!-- History Section -->
+        <div id="donationCards-5" class="mt-5 hidden">
+            <div id="historyContent-5" class="space-y-4"></div>
+        </div>
 
     </main>
     <script src="JS/donation.js"></script>
@@ -354,8 +372,6 @@
     <script src="JS/section-5.js"></script>
     <script src="JS/login.js"></script>
     <script src="JS/user.js"></script>
-    <script src="JS/filter.js"></script>
-
 
     <!-- Footer Start -->
     <footer id="footerSection" class="bg-zinc-100 border-t border-gray-300 mt-10">
@@ -390,9 +406,6 @@
         </div>
     </footer>
     <!-- Footer End -->
-
-
-
 </body>
 
 </html>
