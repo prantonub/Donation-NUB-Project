@@ -3,12 +3,8 @@
 
 <head>
     <script type="module">
-        // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
+        // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCSEwO83OIpu9QDXNAlS1kjm0r-chWiw5I",
             authDomain: "donation-nub-project.firebaseapp.com",
@@ -24,7 +20,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HopeFund BD</title>
-    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="src/assets/logo.png" type="image/x-icon">
     <!-- Lexend Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,18 +34,17 @@
 </head>
 
 <body>
-    <!-- Modify the navigation to show user info -->
     <nav
         class="fixed top-0 left-0 w-full max-w-12xl mx-auto px-4 py-3 flex justify-between items-center p-10 py-10 bg-zinc-100 shadow-lg">
         <!-- Logo Section -->
         <div class="flex items-center space-x-2 hidden md:flex">
-            <img src="/src/assets/logo.png" alt="Logo">
+            <img src="src/assets/logo.png" alt="Logo">
             <span class="font-bold text-2xl">HopeFund BD</span>
         </div>
 
         <div class="flex items-center gap-2">
-            <img src="/src/assets/coin.png" alt="Coin Icon">
-            <h1 id="mainBalance" class="text-xl">5500 BDT</h1>
+            <img src="src/assets/coin.png" alt="Coin Icon">
+            <h1 id="mainBalance" class="text-xl">5000 BDT</h1>
         </div>
     </nav>
     <main class="max-w-screen-xl mx-auto px-16 lg:px-28 mt-24">
@@ -75,12 +70,12 @@
 <section id="section-1"
     class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
     <div class="w-96">
-        <img src="/src/assets/noakhali.png" alt="">
+        <img src="src/assets/noakhali.png" alt="">
     </div>
 
     <div>
         <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
-            <img src="/src/assets/coin.png" alt="">
+            <img src="src/assets/coin.png" alt="">
             <h1 id="accountBalance" class="text-xl">0 BDT</h1>
         </div>
         <div class="flex flex-col">
@@ -110,7 +105,7 @@
                 <div class="modal-box text-center">
                     <h3 class="text-4xl font-bold">Congrats!</h3>
                     <div class="mt-6">
-                        <img class="w-8 mx-auto" src="/src/assets/coin.png" alt="Donation Coin">
+                        <img class="w-8 mx-auto" src="src/assets/coin.png" alt="Donation Coin">
                     </div>
                     <div class="mt-2 text-lg font-medium mb-2">You Have Donated for Humankind</div>
                     <div class="text-black-500 font-bold text-2xl">Successfully</div>
@@ -133,12 +128,12 @@
         <section id="section-2"
             class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
             <div class="w-96">
-                <img src="/src/assets/feni.png" alt="" srcset="">
+                <img src="src/assets/feni.png" alt="" srcset="">
             </div>
 
             <div>
                 <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
-                    <img src="/src/assets/coin.png" alt="">
+                    <img src="src/assets/coin.png" alt="">
                     <h1 id="accountBalance-2" class="text-xl">0 BDT</h1>
                 </div>
                 <div class="flex flex-col ">
@@ -173,7 +168,7 @@
                         <div class="modal-box text-center">
                             <h3 class="text-4xl font-bold">Congrats!</h3>
                             <div class="mt-6">
-                                <img class="w-8 mx-auto" src="/src/assets/coin.png" alt="Donation Coin">
+                                <img class="w-8 mx-auto" src="src/assets/coin.png" alt="Donation Coin">
                             </div>
                             <div class="mt-2 text-lg font-medium mb-2">
                                 You Have Donated for Humankind
@@ -197,12 +192,12 @@
         <section id="section-3"
             class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
             <div class="w-96">
-                <img src="/src/assets/quota-protest.png" alt="" srcset="">
+                <img src="src/assets/quota-protest.png" alt="" srcset="">
             </div>
 
             <div>
                 <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
-                    <img src="/src/assets/coin.png" alt="">
+                    <img src="src/assets/coin.png" alt="">
                     <h1 id="accountBalance-3" class="text-xl">0 BDT</h1>
                 </div>
                 <div class="flex flex-col ">
@@ -231,7 +226,7 @@
                         <div class="modal-box text-center">
                             <h3 class="text-4xl font-bold">Congrats!</h3>
                             <div class="mt-6">
-                                <img class="w-8 mx-auto" src="/src/assets/coin.png" alt="Donation Coin">
+                                <img class="w-8 mx-auto" src="src/assets/coin.png" alt="Donation Coin">
                             </div>
                             <div class="mt-2 text-lg font-medium mb-2">You Have Donated for Humankind</div>
                             <div class="text-black-500 font-bold text-2xl">Successfully</div>
@@ -252,12 +247,12 @@
         <section id="section-4"
             class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
             <div class="w-96">
-                <img src="/src/assets/food-relief.jpg" alt="">
+                <img src="src/assets/food-relief.jpg" alt="">
             </div>
 
             <div>
                 <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
-                    <img src="/src/assets/coin.png" alt="">
+                    <img src="src/assets/coin.png" alt="">
                     <h1 id="accountBalance-4" class="text-xl">0 BDT</h1>
                 </div>
                 <div class="flex flex-col">
@@ -288,7 +283,7 @@
                         <div class="modal-box text-center">
                             <h3 class="text-4xl font-bold">Congrats!</h3>
                             <div class="mt-6">
-                                <img class="w-8 mx-auto" src="/src/assets/coin.png" alt="Donation Coin">
+                                <img class="w-8 mx-auto" src="src/assets/coin.png" alt="Donation Coin">
                             </div>
                             <div class="mt-2 text-lg font-medium mb-2">You Have Donated for Humankind</div>
                             <div class="text-black-500 font-bold text-2xl">Successfully</div>
@@ -310,12 +305,12 @@
         <section id="section-5"
             class="flex flex-col sm:flex-row justify-center sm:justify-between items-center px-5 sm:px-10 py-10 gap-5 sm:gap-10 rounded-md bg-gray-100 mt-5">
             <div class="w-96">
-                <img src="/src/assets/winter-clothes.jpg" alt="">
+                <img src="src/assets/winter-clothes.jpg" alt="">
             </div>
 
             <div>
                 <div class="flex items-center px-2 py-1 rounded-md border-solid border-2 border-gray-300 gap-2">
-                    <img src="/src/assets/coin.png" alt="Coin">
+                    <img src="src/assets/coin.png" alt="Coin">
                     <h1 id="accountBalance-5" class="text-xl">0 BDT</h1>
                 </div>
                 <div class="flex flex-col">
@@ -345,7 +340,7 @@
                         <div class="modal-box text-center">
                             <h3 class="text-4xl font-bold">Congrats!</h3>
                             <div class="mt-6">
-                                <img class="w-8 mx-auto" src="/src/assets/coin.png" alt="Donation Coin">
+                                <img class="w-8 mx-auto" src="src/assets/coin.png" alt="Donation Coin">
                             </div>
                             <div class="mt-2 text-lg font-medium mb-2">You Have Donated for Humankind</div>
                             <div class="text-black-500 font-bold text-2xl">Successfully</div>
@@ -379,15 +374,8 @@
             class="max-w-screen-xl mx-auto px-6 py-10 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-6">
             <!-- Logo and Name -->
             <div class="flex items-center gap-3">
-                <img src="/src/assets/logo.png" alt="HopeFund BD Logo" class="w-10 h-10" />
+                <img src="src/assets/logo.png" alt="HopeFund BD Logo" class="w-10 h-10" />
                 <h2 class="text-2xl font-bold">HopeFund BD</h2>
-            </div>
-
-            <!-- Navigation Links -->
-            <div class="flex gap-6 flex-wrap justify-center sm:justify-start text-gray-700 font-medium">
-                <a href="#section-1" class="hover:text-lime-500 transition">Donate</a>
-                <a href="#donationCards" class="hover:text-lime-500 transition">History</a>
-                <a href="blog.html" class="hover:text-lime-500 transition">Blog</a>
             </div>
 
             <!-- Social Icons -->
@@ -405,7 +393,6 @@
             &copy; 2025 HopeFund BD. All rights reserved.
         </div>
     </footer>
-    <!-- Footer End -->
-</body>
 
+</body>
 </html>

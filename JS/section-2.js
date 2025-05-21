@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     donationInput.value = "";
   });
 
-  // View history logic (only for Section 2)
+  // View history logic 
   viewHistoryBtn.addEventListener("click", () => {
     const historyModal = document.createElement("dialog");
     historyModal.className = "modal";
